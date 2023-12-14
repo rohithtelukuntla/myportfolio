@@ -165,7 +165,7 @@ background: var(--gradient-white-bg 2);
     transform-origin: 0 100px;
     display: block;
     top:50;
-    left: 50%;
+    left: 20%;
     font-size: 1.2rem;
     color: black;
     /* transform: translate(-50%, 60%); */
@@ -252,6 +252,14 @@ background: var(--gradient-white-bg 2);
     border-radius: 600%;
 }
 
+.about-img{
+    position: relative;
+    margin: 57px 0;
+    width: 380px;
+    height: auto;
+    z-index: 10;
+}
+
 .menu-icon{
     position: relative;
     display: block;
@@ -279,6 +287,59 @@ background: var(--gradient-white-bg 2);
 }
 .menu-icon.active .bar{
     opacity: 0;
+}
+
+/* About section */
+.about{
+    display: flex;
+    justify-content: space;
+    align-items: center;
+    gap: 1 rem;
+}
+.about .about-img{
+    position: relative;
+}
+
+.about .about-img .about-hero{
+    width: 25vw;
+    height: auto;
+}
+
+.about .ring{
+    position:absolute;
+    top: 10%;
+    right: 2%;
+}
+
+.about-img .circle{
+    position: absolute;
+    top: -45%;
+}
+
+.text-box p{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.about-btn{
+    margin: .8rem 0;
+    color: #00aaff;
+}
+
+.about-btn button{
+    background-color:  white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    color: #000;
+    margin-right: .5rem;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.about-btn button.active{
+    background: red;
+    color: #fff;
 }
 /* .text-animate{
     background-position: 0cap;
