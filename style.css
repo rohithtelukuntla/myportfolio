@@ -100,6 +100,9 @@ background: var(--gradient-white-bg 2);
 .img-hero{
     position: relative;
     width: 300px;
+    max-width: 100%;
+    height: auto;
+    animation: floatImage 4s ease-in-out infinite;
 }
 .img-hero img{
     position: relative;
@@ -160,6 +163,11 @@ background: var(--gradient-white-bg 2);
     /* box-shadow: 0 1px 6px 5.94px rgba(0, 0, 0, 0.2); */
     animation: rotateText 30s linear infinite;
 }
+
+.rotate-text text p{
+    position: absolute;
+    transform-origin: 0 240px;
+}
 .text p{
     position: absolute;
     transform-origin: 0 100px;
@@ -173,7 +181,7 @@ background: var(--gradient-white-bg 2);
     text-align: center;
     color: black;
     font-size: 1rem;
-    animation: rotateText 10s linear infinite
+    /* animation: rotateText 10s linear infinite */
 }
 .navlist li a:hover,.navlist li a.active{
     background: rgb(153, 147, 147);
@@ -298,10 +306,14 @@ background: var(--gradient-white-bg 2);
 }
 .about .about-img{
     position: relative;
+    max-width: 100%;
+    height: auto;
 }
 
 .about .about-img .about-hero{
     width: 25vw;
+    height: auto;
+    max-width: 100%;
     height: auto;
 }
 
@@ -341,6 +353,17 @@ background: var(--gradient-white-bg 2);
     background: red;
     color: #fff;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    /* Styles for screens smaller than 600px */
+}
+
+@media only screen and (min-width: 601px) {
+    /* Styles for screens 601px and larger */
+}
+
 /* .text-animate{
     background-position: 0cap;
     background-color: red;
@@ -355,6 +378,198 @@ background: var(--gradient-white-bg 2);
     }
 }
 
+@keyframes moveText{
+    0%,10%,100%{
+        background-position: -24rem 0;
+    }
+
+    65%,85%{
+        background-position: 0rem 0;
+    }
+}
+
+@keyframes moveCursorText{
+    0%,10%,100%{
+        width: 0;
+    }
+
+    65%,78%,85%{
+        width: 100%;
+        opacity: 1;
+    }
+
+    75%,85%{
+        opacity: 0;
+    }
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateText{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes progress{
+   to{
+    stroke-dashoffset: var(--target);
+   }
+}
+
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-22px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/*======================= BrakPoints ============================ */
+
+@media(max-width:1200px){
+    html{
+        font-size: 95%;
+    }
+}
+
+@media(max-width:991px){
+    header,section,footer{
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .home,.portfolio-box{
+        flex-direction: column-reverse;
+    }
+    .about,.contactSkills{
+        flex-direction: column;
+    }
+    .about .about-img .aboutHero{
+        width: 100%;
+    }
+    .proposal img{
+        width: 52vw;
+    }
+    .portfolio-img img{
+        width: 100%;
+        height: 100%;
+    }
+    .portfolio-gallery{
+        grid-template-columns: repeat(auto-fill,minmax(250px , 1fr));
+    }
+    .img-hero{
+        margin-top: 3rem;
+    }
+}
+
+@media(max-width:768px){
+    .proposal{
+        display: none;
+    }
+    .menu-icon .bar,.menu-icon::after,.menu-icon::before{
+        display: block;
+    }
+    ul.navlist{
+        position: absolute;
+        top: -1000px;
+        transition: all .3s ease;
+        width: 100%;
+        text-align: center;
+        display: block;
+        background: var(--gradient-white-bg);
+        left: 0;
+        border-top: 2px solid rgba(248, 202, 202, .7);
+    }
+    ul.navlist a{
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    .navlist.active{
+        top: 100%;
+    }
+    .overlay{
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        position: fixed;
+        background: rgba(0,0,0,0.5);
+        z-index: 8;
+        opacity: 0;
+        transform: .3s;
+        pointer-events: none;
+    }
+    body.open .overlay{
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .btn{
+        padding: 10px;
+    }
+    .home{
+        grid-gap: 0;
+    }
+    .fillter-buttons button{
+        padding: 10px;
+        font-size: .8rem;
+    }
+}
+
+@media(max-width:530px){
+    html{
+        font-size: 80%;
+    }
+    section{
+        padding: 50px 3%;
+    }
+    .contact-info form .input-box{
+        display: block;
+    }
+    .input-box input {
+        width: 100%;
+    }
+    .rotate-text{
+        display: none;
+    }
+    .img-hero img{
+        width: 100%;
+    }
+    .text-animate{
+        width: 23.8rem;
+    }
+    .btn-box{
+        width: 266px;
+        margin-bottom: 3rem;
+    }
+    .about-btn button{
+        padding: 10px 15px;
+    }
+    .fillter-buttons{
+        display: grid;
+        grid-gap: 1rem;
+    }
+    .fillter-buttons button{
+        width: 100%;
+        padding: 13px;
+    }
+}
 /* @keyframes rotate-text{
     from{
         transform: translate(-50%, -50%) rotate(0deg);

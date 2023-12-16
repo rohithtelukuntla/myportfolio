@@ -8,12 +8,12 @@ menuIcon.addEventListener("click", () => {
 });
 
 // Get the text element
-let text = document.querySelector(".text p");
+let text = document.querySelector(".rotate-text text p");
 
 // Split the text content into an array of characters and apply rotation to each character
 text.innerHTML = text.innerHTML.split("").map((char, i) => {
     // Rotate each character by a certain degree based on its index
-    return `<b style="transform:rotate(${i * 6.3}deg)">${char}</b>`;
+    return `<b style="transform:rotate(${i * 100}deg)">${char}</b>`;
 }).join("");
 
 // Get all buttons with the class 'about-btn'
